@@ -1,0 +1,177 @@
+$toggle-size: 3em;
+$toggle-line-color: rgb(63, 63, 63);
+$toggle-line-focus-color: rgb(36, 36, 36);
+$toggle-line-size: $toggle-size/8;
+$toggle-line-angle: 405deg;
+$toggle-anim-speed: 1.2s;
+
+
+
+.openLine0 {
+  animation: jumpOpen-1 $toggle-anim-speed forwards ease;
+  &:after {
+    animation: lineOpen-1 $toggle-anim-speed forwards ease-in-out;
+  }
+}
+.closeLine0 {
+  animation: jumpClose-1 $toggle-anim-speed reverse ease;
+  &:after {
+    animation: lineClose-1 $toggle-anim-speed reverse ease-in-out;
+  }
+}
+.openLine1 {
+  animation: jumpOpen-2 $toggle-anim-speed forwards ease;
+  &:after {
+    animation: lineOpen-2 $toggle-anim-speed forwards ease-in-out;
+  }
+}
+.closeLine1 {
+  animation: jumpClose-2 $toggle-anim-speed reverse ease;
+  &:after {
+    animation: lineClose-2 $toggle-anim-speed reverse ease-in-out;
+  }
+}
+.openLine2{
+  animation: jumpOpen-3 $toggle-anim-speed forwards ease;
+}
+.closeLine2 {
+  
+  animation: jumpClose-3 $toggle-anim-speed forwards ease;
+}
+
+
+
+@keyframes lineOpen-1 {
+  10% {
+    transform: translateZ(0) rotate(0);
+  }
+  80% {
+    transform: translateZ(0) rotate($toggle-line-angle - 10);
+  }
+  90%,
+  100% {
+    transform: translateZ(0) rotate($toggle-line-angle);
+  }
+}
+@keyframes lineClose-1 {
+  10% {
+    transform: translateZ(0) rotate(0);
+  }
+  80% {
+    transform: translateZ(0) rotate($toggle-line-angle - 10);
+  }
+  90%,
+  100% {
+    transform: translateZ(0) rotate($toggle-line-angle);
+  }
+}
+
+
+@keyframes lineOpen-2 {
+  10% {
+    transform: translateZ(0) rotate(0);
+  }
+  20% {
+    transform: translateZ(0) rotate(10deg);
+  }
+  90%,
+  100% {
+    transform: translateZ(0) rotate(-$toggle-line-angle);
+  }
+}
+@keyframes lineClose-2 {
+  10% {
+    transform: translateZ(0) rotate(0);
+  }
+  20% {
+    transform: translateZ(0) rotate(10deg);
+  }
+  90%,
+  100% {
+    transform: translateZ(0) rotate(-$toggle-line-angle);
+  }
+}
+@keyframes jumpOpen-1 {
+  10% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-$toggle-line-size * 6);
+  }
+  90%,
+  100% {
+    transform: translateY(-$toggle-line-size * 1);
+  }
+}
+@keyframes jumpClose-1 {
+  10% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-$toggle-line-size * 6);
+  }
+  90%,
+  100% {
+    transform: translateY(-$toggle-line-size * 1);
+  }
+}
+
+@keyframes jumpOpen-2 {
+  10% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-$toggle-line-size * 6);
+  }
+  85%,
+  100% {
+    transform: translateY(-$toggle-line-size * 3);
+  }
+}
+@keyframes jumpClose-2 {
+  10% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-$toggle-line-size * 6);
+  }
+  85%,
+  100% {
+    transform: translateY(-$toggle-line-size * 3);
+  }
+}
+
+@keyframes jumpOpen-3 {
+  10% {
+    transform: translateY(-$toggle-line-size * 1) rotate(15deg);
+  }
+  30% {
+    transform: translateY(-$toggle-line-size * 4) rotate(-10deg);
+  }
+  50% {
+    transform: translateY($toggle-line-size) rotate(5deg);
+  }
+  80% {
+    transform: translateY(0);
+  }
+}
+@keyframes jumpClose-3 {
+  10% {
+    transform: translateY(-$toggle-line-size * 1) rotate(15deg);
+  }
+  30% {
+    transform: translateY(-$toggle-line-size * 4) rotate(-10deg);
+  }
+  50% {
+    transform: translateY($toggle-line-size) rotate(5deg);
+  }
+  80% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  50% {
+    box-shadow: rgba(lighten($toggle-line-color, 10%), 0.4) 0 0 2px 2px;
+  }
+}
