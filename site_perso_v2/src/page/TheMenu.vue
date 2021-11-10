@@ -28,6 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../variable.scss';
 h2 {
   font-size: 3em;
 }
@@ -42,6 +43,7 @@ h2 {
   width: 100%;
   height: 100%;
   position: fixed;
+  background-color: transparent;
   top: 0;
   left: 0;
   display: flex;
@@ -53,13 +55,19 @@ h2 {
   align-items: center;
 }
 .menu {
-  background-color: black;
-  color: white;
+  background-color: $primaire;
+  color: $secondaire;
+  @media (min-width: 768px) {
+  background-color: $secondaire;
+  color: $primaire;}
   width: 100%;
   height: 100%;
 }
 .explicationMenu {
-  background-color: darkgrey;
+  z-index: 1;
+  background-color: $secondaire; 
+  @media (min-width: 768px) {
+  background-color: $primaire;}
   width: 100%;
   height: 50%;
   @media (min-width: 768px) {

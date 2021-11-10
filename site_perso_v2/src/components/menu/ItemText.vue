@@ -1,6 +1,6 @@
 <template>
   <div class="item-text-container">
-    <div class="text"><p>Je ne comprend pas bien pourquoi</p></div>
+    <div class="text">Bonjour, bienvenue, Anaël Damette, Développeur Web</div>
   </div>
 </template>
 
@@ -12,19 +12,18 @@ export default {
     onMounted(() => {
       const phrases = [
         "Bonjour,",
-        "Anael Damette",
-        "Développeur Web",
-        "Vous êtes dans le menu de mon site perso",
+        "Bienvenue !",
+        "Anaël Damette",
+        "Développeur Web"
       ];
 
       const el = document.querySelector(".text");
-      console.log(el);
       const fx = new TextScramble(el);
 
       let counter = 0;
       const next = () => {
         fx.setText(phrases[counter]).then(() => {
-          setTimeout(next, 800);
+          setTimeout(next, 1500);
         });
         counter = (counter + 1) % phrases.length;
       };
@@ -38,6 +37,7 @@ export default {
 
 
 <style lang="scss" scoped>
+@import '../../variable.scss';
 .item-text-container {
   height: 100%;
   width: 100%;
@@ -45,20 +45,26 @@ export default {
   justify-content: center;
   align-items: center;
   display: flex;
+  background-color: transparent;
 }
 .text {
   justify-content: center;
   align-items: center;
-  font-weight: 100;
-  color: #181818;
+  text-align: center;
+  background-color: transparent;
+  color: $primaire;
+  @media (min-width: 768px) {
+    color: $secondaire
+  }
   font-size: 1.5em;
   margin: 0.5rem;
   @media (min-width: 768px) {
-    font-size: 4vw;
+    font-size: 2vw;
     margin: 2vw;
   }
 }
 .dud {
   color: #757575;
+  background-color: transparent;
 }
 </style>

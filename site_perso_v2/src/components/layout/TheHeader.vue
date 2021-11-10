@@ -1,32 +1,34 @@
 <template>
-<button
-    
+  <button
     id="menu-toggle"
     class="btn-toggle"
     :class="menuToggle ? 'open' : 'close'"
-    @click="changeClassSpan"
+    @click="dispatchMenuToggle"
   >
     <span class="line"></span>
     <span class="line"></span>
     <span class="line"></span>
   </button>
-
 </template>
 <script>
-import { ref } from "vue";
+import { computed } from "vue";
+import { useStore } from "vuex";
 
 export default {
   props: ["zindex"],
-  setup(_, context) {
-    let menuToggle = ref(false);
-
+  setup() {
+    const store = useStore();
+    const menuToggle = computed(function () {
+      changeClassSpan();
+      return store.getters.menuToggle;
+    });
+    function dispatchMenuToggle() {
+      store.dispatch("changeMenuToggle");
+    }
     function changeClassSpan() {
-      menuToggle.value = !menuToggle.value;
-      context.emit("menu-toggle", menuToggle);
-
       const arrayLine = document.querySelectorAll(".line");
       for (let i = 0; i < arrayLine.length; i++) {
-        if (menuToggle.value) {
+        if (!menuToggle.value) {
           arrayLine[i].classList.remove("closeLine" + i);
           arrayLine[i].classList.add("openLine" + i);
         } else {
@@ -36,13 +38,12 @@ export default {
       }
     }
 
-    return { menuToggle, changeClassSpan };
+    return { menuToggle, dispatchMenuToggle };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 @import "./animationMenuBurger.scss";
 
 .btn-toggle {
@@ -74,6 +75,7 @@ export default {
   display: block;
   width: $toggle-size;
   padding: $toggle-line-size/2;
+  background-color: transparent;
 
   &:after {
     content: "";
