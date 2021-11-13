@@ -11,8 +11,6 @@ export default {
   setup() {
     onMounted(() => {
       const phrases = [
-        "Bonjour,",
-        "Bienvenue !",
         "Anaël Damette",
         "Développeur Web"
       ];

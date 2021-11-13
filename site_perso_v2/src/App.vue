@@ -30,7 +30,9 @@ export default {
       store.dispatch("mousePosition");
     }
     let animateOff = ref(true);
-    const menuToggle = computed(function() { return store.getters.menuToggle});
+    const menuToggle = computed(function () {
+      return store.getters.menuToggle;
+    });
     return { menuToggle, animateOff, mousePosition };
   },
 };
@@ -54,7 +56,14 @@ export default {
   scroll-behavior: smooth;
 }
 *::-webkit-scrollbar {
-  width:0!important;
+  width: 0 !important;
+}
+
+a {
+  &:focus-visible {
+    outline: none;
+  }
+  text-decoration: none;
 }
 
 ul {

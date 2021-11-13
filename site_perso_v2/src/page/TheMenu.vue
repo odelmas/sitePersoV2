@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div  v-show="isActive" class="container">
     <transition name="expMenu">
       <div v-if="isActive" class="explicationMenu">
         <item-text></item-text>
@@ -33,13 +33,15 @@ h2 {
   font-size: 3em;
 }
 .explicationMenu,
-.menu {
+.menu {  
+  z-index: 10;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .container {
+  z-index: 10;
   width: 100%;
   height: 100%;
   position: fixed;
@@ -64,7 +66,6 @@ h2 {
   height: 100%;
 }
 .explicationMenu {
-  z-index: 1;
   background-color: $secondaire; 
   @media (min-width: 768px) {
   background-color: $primaire;}

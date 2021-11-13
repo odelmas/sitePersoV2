@@ -35,7 +35,6 @@ export default {
 <style lang="scss" scoped>
 @import "../../variable.scss";
 a {
-  text-decoration: none;
   color: $secondaire;
   @media (min-width: 768px) {
     color: $primaire;
