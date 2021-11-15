@@ -1,5 +1,5 @@
 <template>
-    <div class="fullPage" id="ancreAccueil"><the-animation-background text="Accueil" id="ancreAccueil"></the-animation-background></div>
+    <div class="fullPage onScreen" id="ancreAccueil"><the-animation-background text="Accueil" idPage="ancreAccueil" color="dark"></the-animation-background></div>
 </template>
 <style lang="scss" scoped>
 .fullPage {

@@ -1,5 +1,5 @@
 <template>
-  <div  v-show="isActive" class="container">
+  <div  :class="{containerInactif : !isActive}" class="container">
     <transition name="expMenu">
       <div v-if="isActive" class="explicationMenu">
         <item-text></item-text>
@@ -55,6 +55,10 @@ h2 {
   }
   justify-content: space-around;
   align-items: center;
+}
+.containerInactif {
+  z-index : -5;
+  transition: all 3s;
 }
 .menu {
   background-color: $primaire;

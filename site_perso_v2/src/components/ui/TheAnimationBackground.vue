@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapperHeight">
+  <div class="wrapperHeight" :class="color">
     <div class="wrapperMultiplier">
       <div class="multiplier pre">
         &nbsp;<span>{{ text }}</span>
@@ -15,15 +15,14 @@
 import { onMounted } from "vue";
 import { fillWidth, fillHeight } from "./animationBackground.js";
 export default {
-  props: ["text", "id"],
+  props: ["text", "idPage", "color"],
   setup(props) {
     onMounted(() => {
-      fillWidth(props.text, props.id);
-      fillHeight(props.id);
+      fillWidth(props.text, props.idPage);
+      fillHeight(props.idPage);
       window.addEventListener('resize', () => {
-        console.log("onResize")
-        fillWidth(props.text, props.id);
-        fillHeight(props.id)
+        fillWidth(props.text, props.idPage);
+        fillHeight(props.idPage)
       })
     });
 
@@ -41,16 +40,30 @@ export default {
   overflow: hidden;
   z-index: 0;
 }
+.dark {
+  background-color: $secondaire;
+  .wrapperMultiplier .multiplier span {
+    color: $secondaire - 5;
+    transition: all 1.5s;
+  }
+  .wrapperMultiplier .multiplier span:hover {
+    color: $secondaire + 20;
+    transition: all 0s;
+  }
+}
+.light{
+  background-color: $primaire;
+  .wrapperMultiplier .multiplier span {
+    color: $primaire + 5;
+    transition: all 1.5s;
+  }
+  .wrapperMultiplier .multiplier span:hover {
+    color: $primaire - 20;
+    transition: all 0s;
+  }
+}
 
 .multiplier {
-  span {
-    color: $primaire - 4;
-  }
-
-  span:hover {
-    color: $primaire - 8;
-  }
-
   position: relative;
   padding: 5px 0 5px 0;
   font-size: 30px;
@@ -64,9 +77,8 @@ export default {
   animation: scrollTxtEven 120s linear infinite;
 }
 .wrapperHeight {
-  background-color: $primaire;
   display: flex;
-  position: absolute;
+  position: relative;
   flex-direction: column;
   width: 100%;
   top: 0;

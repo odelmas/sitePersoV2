@@ -13,7 +13,7 @@ import TheAccueil from "./page/TheAccueil.vue";
 import TheCompetence from "./page/TheCompetence.vue";
 import TheRealisation from "./page/TheRealisation.vue";
 import TheContact from "./page/TheContact.vue";
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 export default {
   components: {
@@ -25,6 +25,50 @@ export default {
     TheContact,
   },
   setup() {
+    let options = {
+      rootMargin: "0px 0px -90% 0px",
+      threshold: [0.1],
+    };
+    function triggerBackgroundLine(observables) {
+      observables.forEach((observable) => {
+        if (observable.isIntersecting) {
+          let arrayId = [
+            "ancreAccueil",
+            "ancreCompetence",
+            "ancreRealisation",
+            "ancreContact",
+          ];
+          arrayId.forEach(function (itemArrayId) {
+            if (observable.target.id == itemArrayId) {
+              switch (itemArrayId) {
+                case "ancreAccueil":
+                  store.dispatch("changeBackgroundColor", "light");
+                  break;
+                case "ancreCompetence":
+                  store.dispatch("changeBackgroundColor", "dark");
+                  break;
+                case "ancreRealisation":
+                  store.dispatch("changeBackgroundColor", "light");
+                  break;
+                case "ancreContact":
+                  store.dispatch("changeBackgroundColor", "dark");
+                  break;
+                default:
+                  console.log(`Sorry, ça marche pas parce que ${itemArrayId}`);
+              }
+            }
+          });
+        }
+      });
+    }
+    let observer = new IntersectionObserver(triggerBackgroundLine, options);
+    onMounted(() => {
+      let items = document.querySelectorAll(".onScreen");
+      items.forEach((item) => {
+        observer.observe(item);
+      });
+    });
+
     const store = useStore();
     function mousePosition() {
       store.dispatch("mousePosition");
@@ -47,6 +91,13 @@ export default {
 @font-face {
   font-family: monumentExtendedRegular;
   src: url("./assets/MonumentExtended/MonumentExtended-Regular.otf");
+}
+.rootMargin {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  bottom: 90%;
+  z-index: 5;
 }
 * {
   font-family: "monumentExtendedUltrabold", "Roboto", sans-serif;

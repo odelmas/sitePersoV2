@@ -6,6 +6,7 @@ export default createStore({
       positionMouseX: 0,
       positionMouseY: 0,
       menuToggle: false,
+      backgroundColor: 'light',
     };
   },
   mutations: {
@@ -27,6 +28,9 @@ export default createStore({
     },
     changeMenuToggle(state){
       state.menuToggle = !state.menuToggle
+    },
+    changeBackgroundColor(state, color) {
+      state.backgroundColor = color
     }
   },
   actions: {
@@ -35,6 +39,9 @@ export default createStore({
     },
     changeMenuToggle(context) {
       context.commit("changeMenuToggle")
+    },
+    changeBackgroundColor(context, color) {
+      context.commit("changeBackgroundColor", color)
     }
   },
   getters: {
@@ -46,6 +53,9 @@ export default createStore({
     },
     menuToggle(state) {
       return state.menuToggle
+    },
+    backgroundColor(state) {
+      return state.backgroundColor
     }
   },
 });
