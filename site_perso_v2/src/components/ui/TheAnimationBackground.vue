@@ -20,10 +20,10 @@ export default {
     onMounted(() => {
       fillWidth(props.text, props.idPage);
       fillHeight(props.idPage);
-      window.addEventListener('resize', () => {
+      window.addEventListener("resize", () => {
         fillWidth(props.text, props.idPage);
-        fillHeight(props.idPage)
-      })
+        fillHeight(props.idPage);
+      });
     });
 
     return {};
@@ -47,18 +47,18 @@ export default {
     transition: all 1.5s;
   }
   .wrapperMultiplier .multiplier span:hover {
-    color: $secondaire + 20;
+    color: $tertiaire-dark;
     transition: all 0s;
   }
 }
-.light{
+.light {
   background-color: $primaire;
   .wrapperMultiplier .multiplier span {
     color: $primaire + 5;
     transition: all 1.5s;
   }
   .wrapperMultiplier .multiplier span:hover {
-    color: $primaire - 20;
+    color: $tertiaire-light ;
     transition: all 0s;
   }
 }
@@ -68,6 +68,9 @@ export default {
   padding: 5px 0 5px 0;
   font-size: 30px;
   white-space: nowrap;
+  span {
+    z-index: 2;
+  }
 }
 
 .wrapperMultiplier:nth-child(odd) .multiplier {
@@ -83,12 +86,6 @@ export default {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 1;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 @keyframes scrollTxtOdd {

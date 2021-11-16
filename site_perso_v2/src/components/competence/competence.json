@@ -1,0 +1,66 @@
+{
+  "frontend": {
+    "javascript": {
+      "name": "Javascript",
+      "iClass": "fab fa-js"
+    },
+    "vuejs": {
+      "name": "VueJs",
+      "iClass": "fab fa-vuejs"
+    },
+    "sass": {
+      "name": "Sass",
+      "iClass": "fab fa-sass"
+    },
+    "bootstrap": {
+      "name": "Bootstrap",
+      "iClass": "fab fa-bootstrap"
+    },
+    "github": {
+      "name": "Github",
+      "iClass": "fab fa-github"
+    },
+    "css": {
+      "name": "Css",
+      "iClass": "fab fa-css3-alt"
+    },
+    "html": {
+      "name": "Html",
+      "iClass": "fab fa-html5"
+    }
+  },
+  "backend": {
+    "nodejs": {
+      "name": "Node.js",
+      "iClass": "fab fa-node-js"
+    },
+    "linux": {
+      "name": "Linux",
+      "iClass": "fab fa-linux"
+    },
+    "raspberypi": {
+      "name": "Raspberry Pi",
+      "iClass": "fab fa-raspberry-pi"
+    },
+    "windows": {
+      "name": "Windows",
+      "iClass": "fab fa-windows"
+    },
+    "python": {
+      "name": "Python",
+      "iClass": "fab fa-python"
+    },
+    "sql": {
+      "name": "Sql",
+      "iClass": null
+    },
+    "mySql": {
+      "name": "MySql",
+      "iClass": null
+    },
+    "mongoDb": {
+        "name": "MongoDb",
+        "iClass": null
+    }
+  }
+}

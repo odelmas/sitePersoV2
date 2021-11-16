@@ -1,6 +1,10 @@
 $primaire:rgb(179, 179, 179);
 $secondaire:  #161616;
+$tertiaire: rgba(102, 11, 11, 0.6);
 
+
+$tertiaire-dark: $tertiaire;
+$tertiaire-light: rgba(146, 17, 17, 0.212);
 $toggle-size: 3em;
 $toggle-line-color: $secondaire;
 $toggle-line-focus-color: $secondaire + 30;

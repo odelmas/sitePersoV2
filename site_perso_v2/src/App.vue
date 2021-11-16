@@ -92,19 +92,18 @@ export default {
   font-family: monumentExtendedRegular;
   src: url("./assets/MonumentExtended/MonumentExtended-Regular.otf");
 }
-.rootMargin {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  bottom: 90%;
-  z-index: 5;
-}
+
 * {
   font-family: "monumentExtendedUltrabold", "Roboto", sans-serif;
   margin: 0;
   padding: 0;
   background-color: transparent;
   scroll-behavior: smooth;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 *::-webkit-scrollbar {
   width: 0 !important;
