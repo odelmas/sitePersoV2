@@ -7,6 +7,7 @@ export default createStore({
       positionMouseY: 0,
       menuToggle: false,
       backgroundColor: 'light',
+      realisation: true,
     };
   },
   mutations: {
@@ -56,6 +57,9 @@ export default createStore({
     },
     backgroundColor(state) {
       return state.backgroundColor
+    },
+    realisation(state) {
+      return state.realisation
     }
   },
 });

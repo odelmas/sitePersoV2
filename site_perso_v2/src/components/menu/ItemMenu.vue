@@ -8,7 +8,7 @@
       <span>2</span>
       <h2 class="">Compétences</h2></a
     >
-    <a href="#ancreRealisation" class="item underline" @click="toggleMenu">
+    <a href="#ancreRealisation" class="item underline" @click="toggleMenu" v-if="realisation">
       <span>3</span>
       <h2 class="">Réalisations</h2></a
     >
@@ -21,13 +21,17 @@
 
 <script>
 import { useStore } from "vuex";
+import {computed} from 'vue';
 export default {
   setup() {
+    const realisation = computed(function () {
+      return store.getters.realisation;
+    });
     const store = useStore();
     function toggleMenu() {
       store.dispatch("changeMenuToggle");
     }
-    return { toggleMenu };
+    return { toggleMenu, realisation };
   },
 };
 </script>
@@ -63,8 +67,9 @@ a {
   span,
   h2 {
     background-color: transparent;
-    @media (max-width: 375px) {
-      font-size: 1.5em;
+   
+   @media (max-width: 375px) {
+      font-size: 1em;
     }
     font-size: 2em;
     margin: 0.5rem;

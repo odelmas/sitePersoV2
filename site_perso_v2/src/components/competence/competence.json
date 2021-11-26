@@ -52,15 +52,15 @@
     },
     "sql": {
       "name": "Sql",
-      "iClass": null
+      "iClass": "fas fa-database"
     },
     "mySql": {
       "name": "MySql",
-      "iClass": null
+      "iClass": "fas fa-database"
     },
     "mongoDb": {
         "name": "MongoDb",
-        "iClass": null
+        "iClass": "fas fa-database"
     }
   }
 }

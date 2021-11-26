@@ -5,14 +5,14 @@
   </div>
 </template>
 <script>
-import {ref} from 'vue';
+import { ref } from "vue";
 export default {
-    props: ['competence'],
+  props: ["competence"],
   setup(props) {
-      let competence = ref(props.competence).value
-      let iClass = competence.iClass;
-      let name = competence.name;
-    return { iClass, name};
+    let competence = ref(props.competence).value;
+    let iClass = competence.iClass;
+    let name = competence.name;
+    return { iClass, name };
   },
 };
 </script>
@@ -22,11 +22,16 @@ p,
 i {
   color: $secondaire;
   z-index: 5;
-  font-size: 2em;
+  @media (max-width: 375px) {
+    font-size: 0.75em;
+  }
+  @media (min-width: 768px) {
+    font-size: 3vh;
+  }
   margin: 10px;
 }
 div {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
 }
 </style>

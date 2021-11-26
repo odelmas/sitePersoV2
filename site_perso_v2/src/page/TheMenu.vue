@@ -42,8 +42,8 @@ h2 {
 }
 .container {
   z-index: 10;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   background-color: transparent;
   top: 0;
@@ -66,8 +66,8 @@ h2 {
   @media (min-width: 768px) {
   background-color: $secondaire;
   color: $primaire;}
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 .explicationMenu {
   background-color: $secondaire; 

@@ -1,9 +1,9 @@
 <template>
-  <the-header></the-header>
+  <the-header id="theHeader"></the-header>
   <the-menu :isActive="menuToggle"></the-menu>
   <the-accueil></the-accueil>
   <the-competence></the-competence>
-  <the-realisation></the-realisation>
+  <the-realisation v-if="realisation"></the-realisation>
   <the-contact></the-contact>
 </template>
 <script>
@@ -25,44 +25,51 @@ export default {
     TheContact,
   },
   setup() {
-    let options = {
-      rootMargin: "0px 0px -90% 0px",
-      threshold: [0.1],
-    };
-    function triggerBackgroundLine(observables) {
-      observables.forEach((observable) => {
-        if (observable.isIntersecting) {
-          let arrayId = [
-            "ancreAccueil",
-            "ancreCompetence",
-            "ancreRealisation",
-            "ancreContact",
-          ];
-          arrayId.forEach(function (itemArrayId) {
-            if (observable.target.id == itemArrayId) {
-              switch (itemArrayId) {
-                case "ancreAccueil":
-                  store.dispatch("changeBackgroundColor", "light");
-                  break;
-                case "ancreCompetence":
-                  store.dispatch("changeBackgroundColor", "dark");
-                  break;
-                case "ancreRealisation":
-                  store.dispatch("changeBackgroundColor", "light");
-                  break;
-                case "ancreContact":
-                  store.dispatch("changeBackgroundColor", "dark");
-                  break;
-                default:
-                  console.log(`Sorry, ça marche pas parce que ${itemArrayId}`);
-              }
-            }
-          });
-        }
-      });
-    }
-    let observer = new IntersectionObserver(triggerBackgroundLine, options);
+        const realisation = computed(function () {
+      return store.getters.realisation;
+    });
     onMounted(() => {
+      function triggerBackgroundLine(observables) {
+        observables.forEach((observable) => {
+          if (observable.isIntersecting) {
+            let arrayId = [
+              "ancreAccueil",
+              "ancreCompetence",
+              "ancreRealisation",
+              "ancreContact",
+            ];
+            arrayId.forEach(function (itemArrayId) {
+              if (observable.target.id == itemArrayId) {
+                switch (itemArrayId) {
+                  case "ancreAccueil":
+                    store.dispatch("changeBackgroundColor", "light");
+                    break;
+                  case "ancreCompetence":
+                    store.dispatch("changeBackgroundColor", "dark");
+                    break;
+                  case "ancreRealisation":
+                    store.dispatch("changeBackgroundColor", "light");
+                    break;
+                  case "ancreContact":
+                    store.dispatch("changeBackgroundColor", "dark");
+                    break;
+                  default:
+                    console.log(
+                      `Sorry, ça marche pas parce que ${itemArrayId}`
+                    );
+                }
+              }
+            });
+          }
+        });
+      }
+      let options = {
+        root: null,
+        rootMargin: "0px 0px -80% 0px",
+        threshold: [0.1],
+      };
+      let observer = new IntersectionObserver(triggerBackgroundLine, options);
+
       let items = document.querySelectorAll(".onScreen");
       items.forEach((item) => {
         observer.observe(item);
@@ -77,7 +84,7 @@ export default {
     const menuToggle = computed(function () {
       return store.getters.menuToggle;
     });
-    return { menuToggle, animateOff, mousePosition };
+    return { menuToggle, animateOff, mousePosition, realisation };
   },
 };
 </script>
@@ -109,6 +116,13 @@ export default {
   width: 0 !important;
 }
 
+
+.fullPage {
+    height: 100vh;
+    width: 100vw;
+    background-color: $primaire !important;
+    overflow: hidden;
+}
 a {
   &:focus-visible {
     outline: none;

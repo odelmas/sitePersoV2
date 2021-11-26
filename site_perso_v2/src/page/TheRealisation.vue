@@ -9,9 +9,4 @@
 </template>
 <style lang="scss" scoped>
 @import "../variable.scss";
-.fullPage {
-  height: 100vh;
-  width: 100vw;
-  background-color: $secondaire !important;
-}
 </style>

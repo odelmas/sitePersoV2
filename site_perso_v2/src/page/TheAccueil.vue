@@ -15,12 +15,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-
 @import "../variable.scss";
-.fullPage {
-  height: 100vh;
-  width: 100vw;
-}
 section {
   pointer-events: none;
   position: absolute;
@@ -32,16 +27,39 @@ section {
   align-items: center;
 }
 p {
-    color: $primaire;
-    z-index: 5;
-    font-size: 2.5em;
-    margin: 10px;
+  color: $primaire;
+  z-index: 5;
+  @media (max-width: 375px) {
+    font-size: 0.75em;
+  }
+  font-size: 1em;
+  margin: 0.5rem;
+   @media (min-width: 404px) {
+    font-size: 4vw
+  }
+  @media (min-width: 892px) {
+    font-size: 5vh;
+    margin: 2vw;
+  }
+  margin: 10px;
 }
-h2, h3 {
+h2,
+h3 {
+  @media (max-width: 375px) {
+    font-size: 1.5em;
+  }
+  font-size: 2em;
+  margin: 0.5rem;
+  @media (min-width: 404px) {
+    font-size: 6vw
+  }
+  @media (min-width: 892px) {
+    font-size: 10vh;
+    margin: 2vw;
+  }
   color: $primaire;
   text-align: center;
   background-color: transparent;
-  font-size: 5em;
   margin-bottom: 20px;
   z-index: 5;
 }

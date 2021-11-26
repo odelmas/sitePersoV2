@@ -86,6 +86,7 @@ export default {
   width: 100%;
   top: 0;
   left: 0;
+  padding: 5px;
 }
 
 @keyframes scrollTxtOdd {

@@ -15,7 +15,7 @@ export function fillHeight(id) {
 
   const divWrapper = document.querySelector(`#${id} .wrapperMultiplier`);
   const targetClone = document.querySelector(`#${id} .wrapperHeight`);
-  while ( targetClone.clientHeight < heightEcran) {
+  while ( targetClone.clientHeight < heightEcran ) {
     let cloneDiv = divWrapper.cloneNode(true);
     targetClone.appendChild(cloneDiv);
   } 
