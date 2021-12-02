@@ -2,7 +2,7 @@
   <button
     id="menu-toggle"
     class="btn-toggle"
-    :class="menuToggle ? 'open' : 'close'"
+    :class="menuToggle ? 'open' : 'close'" 
     @click="dispatchMenuToggle"
   >
     <span class="line" :class="backgroundLine"></span>
@@ -65,11 +65,9 @@ export default {
   outline: none;
   transform: translateZ(0);
   transition: transform 0.1s ease-out;
-
   &:active {
     transform: translateY(4px);
   }
-
   &:focus .line:after {
     background-color: $toggle-line-focus-color;
   }

@@ -115,6 +115,7 @@ export default {
 *::-webkit-scrollbar {
   width: 0 !important;
 }
+button { border: none;}
 
 
 .fullPage {

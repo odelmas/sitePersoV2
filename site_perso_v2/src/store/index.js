@@ -1,6 +1,10 @@
 import { createStore } from "vuex";
+import monsterSlayerModule from './modules/monsterSlayer';
 
 export default createStore({
+  modules: {
+    monsterSlayer: monsterSlayerModule
+  },
   state() {
     return {
       positionMouseX: 0,
