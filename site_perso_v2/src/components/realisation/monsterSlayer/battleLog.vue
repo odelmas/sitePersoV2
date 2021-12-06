@@ -1,7 +1,7 @@
 <template>
-  <section id="log" class="container">
+  <section id="log" class="container" :class="{gameOverLog: winner}">
     <h2>Journal de combat</h2>
-    <ul>
+    <ul >
       <li v-for="logMessage in logMessages" :key="logMessage">
         <span
           :class="{
@@ -17,30 +17,43 @@
           }}</span></span
         >
         <span v-else>
-          attaque et fait
+          attaque et fait 
           <span class="log--damage"> {{ logMessage.actionValue }}</span>
         </span>
       </li>
     </ul>
   </section>
 </template>
-
+<script>
+import { computed } from "vue";
+import {useStore} from "vuex"
+export default {
+  setup() {
+    let winner = computed(function () {
+      return store.getters["monsterSlayer/winner"]
+    })
+    const store = useStore();
+    let logMessages = computed(function () {
+      return store.getters["monsterSlayer/logMessages"];
+    });
+    return { logMessages, winner };
+  },
+};
+</script>
 <style lang="scss" scoped>
-
 @import "../../../variable.scss";
-.container {
-  text-align: center;
-  padding: 0.5rem;
-  margin: 1rem auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  background-color: $secondaire;
-  border-radius: 1em;
-  overflow: scroll;
+#log {
+  height: 30%;
+}
+.gameOverLog {
+  height: 50% !important;
 }
 #log ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  max-height: 100%;
+  overflow: scroll;
 }
 
 #log li {

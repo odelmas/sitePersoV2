@@ -58,7 +58,7 @@ export default {
     transition: all 1.5s;
   }
   .wrapperMultiplier .multiplier span:hover {
-    color: $tertiaire-light ;
+    color: $primaire ;
     transition: all 0s;
   }
 }

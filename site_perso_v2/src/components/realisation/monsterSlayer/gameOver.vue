@@ -18,7 +18,7 @@ export default {
       store.dispatch("monsterSlayer/updateJoueurHealth", 100);
       store.dispatch("monsterSlayer/updateWinner", null);
       store.dispatch("monsterSlayer/updateCurrentRound", 0);
-      store.dispatch("monsterSlayer/updateLogMessages", []);
+      store.dispatch("monsterSlayer/resetLogMessages", []);
     }
     return {startNewGame}
   },
@@ -28,14 +28,6 @@ export default {
 <style lang="scss" scoped>
 @import "../../../variable.scss";
 
-.container {
-  text-align: center;
-  padding: 0.5rem;
-  margin: 1rem auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  background-color: $secondaire;
-  border-radius: 1em;
-}
 
 h3 {
   border: solid 2px $primaire;

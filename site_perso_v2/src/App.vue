@@ -161,4 +161,13 @@ ul {
     width: 100%;
   }
 }
+.container {
+  text-align: center;
+  padding: 0.5rem;
+  margin: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  background-color: $secondaire;
+  border-radius: 1em;
+  overflow: scroll;
+}
 </style>

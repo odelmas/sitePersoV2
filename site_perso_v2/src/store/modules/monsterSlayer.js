@@ -10,40 +10,49 @@ export default {
     };
   },
   mutations: {
-      updateDragonHealth(state, context) {
-          state.DragonHealth = context
-      },
-      updateJoueurHealth(state, context) {
-          state.JoueurHealth = context
-      },
-      updateWinner(state, context) {
-          state.winner = context
-      },
-      updateCurrentRound(state, context) {
-          state.currentRound = context
-      },
-      incrementCurrentRound(state) {
-          state.currentRound++
-      },
-      updateLogMessages(state, context) {
-          state.logMessages = context
-      }
+    updateDragonHealth(state, context) {
+      state.DragonHealth = context;
+    },
+    updateJoueurHealth(state, context) {
+      state.JoueurHealth = context;
+    },
+    updateWinner(state, context) {
+      state.winner = context;
+    },
+    updateCurrentRound(state, context) {
+      state.currentRound = context;
+    },
+    incrementCurrentRound(state) {
+      state.currentRound++;
+    },
+    updateLogMessages(state, context) {
+      state.logMessages.unshift(context);
+    },
+    resetLogMessages(state) {
+        state.logMessages = [];
+    }
   },
   actions: {
-      updateDragonHealth(context, number) {
-          context.commit('updateDragonHealth', number)
-      },
-      updateJoueurHealth(context, number) {
-        context.commit('updateJoueurHealth', number)
-    },updateWinner(context, text) {
-        context.commit('updateWinner', text)
-    },updateCurrentRound(context, number) {
-        context.commit('updateCurrentRound', number)
-    },updateLogMessages(context, array) {
-        context.commit('updateLogMessages', array)
+    updateDragonHealth(context, number) {
+      context.commit("updateDragonHealth", number);
+    },
+    updateJoueurHealth(context, number) {
+      context.commit("updateJoueurHealth", number);
+    },
+    updateWinner(context, text) {
+      context.commit("updateWinner", text);
+    },
+    updateCurrentRound(context, number) {
+      context.commit("updateCurrentRound", number);
+    },
+    updateLogMessages(context, array) {
+      context.commit("updateLogMessages", array);
     },
     incrementCurrentRound(context) {
-        context.commit('incrementCurrentRound')
+      context.commit("incrementCurrentRound");
+    },
+    resetLogMessages(context){
+        context.commit("resetLogMessages")
     }
   },
   getters: {
@@ -51,16 +60,16 @@ export default {
       return state.DragonHealth;
     },
     JoueurHealth(state) {
-        return state.JoueurHealth
+      return state.JoueurHealth;
     },
     currentRound(state) {
-        return state.currentRound
+      return state.currentRound;
     },
     winner(state) {
-        return state.winner
+      return state.winner;
     },
     logMessages(state) {
-        return state.logMessages
-    }
+      return state.logMessages;
+    },
   },
 };

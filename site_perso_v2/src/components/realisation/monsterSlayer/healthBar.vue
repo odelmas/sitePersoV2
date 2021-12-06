@@ -40,14 +40,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../../../variable.scss";
-.container {
-  text-align: center;
-  padding: 0.5rem;
-  margin: 1rem auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  background-color: $secondaire;
-  border-radius: 1em;
-}
 
 .healthbar__value {
   background-color: #008b62;

@@ -12,11 +12,11 @@
     class="monsterSlayerContainer"
   >
     <h2>Mini Jeu : La Chasse aux Dragons</h2>
-    <healthbar></healthbar>
+    <healthbar v-if="!winner"></healthbar>
     <fin-de-partie class="container" v-if="winner" :winner="winner">
     </fin-de-partie>
     <action-possible id="controls" v-else> </action-possible>
-    <battle-log v-if="battleLogOnScreen"></battle-log>
+    <battle-log v-if="battleLogOnScreen" ></battle-log>
   </aside>
 </template>
 
@@ -80,7 +80,7 @@ export default {
       toggleMonsterSlayer,
       monsterSlayerOpen,
       winner,
-      battleLogOnScreen,
+      battleLogOnScreen
     };
   },
 };
@@ -106,6 +106,8 @@ h2 {
 
 .monsterSlayerContainer {
   position: relative;
+  display: flex;
+  flex-direction: column;
   left: 100%;
   top: 3%;
   max-width: 400px;

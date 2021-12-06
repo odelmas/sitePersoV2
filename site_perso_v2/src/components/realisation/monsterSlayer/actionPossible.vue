@@ -21,6 +21,10 @@ export default {
       return store.getters["monsterSlayer/JoueurHealth"];
     });
 
+    let mayUseSpecialAttack = computed(function () {
+      return store.getters["monsterSlayer/currentRound"] % 3 !== 0;
+    });
+
     function getRandomValue(min, max) {
       return Math.floor(Math.random() * (max - min)) + min;
     }
@@ -29,14 +33,14 @@ export default {
       const attackValue = getRandomValue(5, 12);
       let newDragonHealth = DragonHealth.value - attackValue;
       store.dispatch("monsterSlayer/updateDragonHealth", newDragonHealth);
-      // addLogMessage("Joueur", "attack", attackValue);
+      addLogMessage("Joueur", "attack", attackValue);
       attackJoueur();
     }
     function attackJoueur() {
       const attackValue = getRandomValue(8, 15);
       let newJoueurHealth = JoueurHealth.value - attackValue;
       store.dispatch("monsterSlayer/updateJoueurHealth", newJoueurHealth);
-      // addLogMessage("Joueur", "attack", attackValue);
+      addLogMessage("Dragon", "attack", attackValue);
     }
     function specialAttackDragon() {
       store.dispatch("monsterSlayer/incrementCurrentRound");
@@ -44,7 +48,7 @@ export default {
       const attackValue = getRandomValue(10, 25);
       let newDragonHealth = DragonHealth.value - attackValue;
       store.dispatch("monsterSlayer/updateDragonHealth", newDragonHealth);
-      // addLogMessage("Joueur", "special-attack", attackValue);
+      addLogMessage("Joueur", "special-attack", attackValue);
       attackJoueur();
     }
     function healJoueur() {
@@ -58,13 +62,27 @@ export default {
         store.dispatch("monsterSlayer/updateJoueurHealth", newJoueurHealth);
       }
 
-      // this.addLogMessage("Joueur", "heal", healValue);
+      addLogMessage("Joueur", "heal", healValue);
       attackJoueur();
     }
     function surrender() {
       store.dispatch("monsterSlayer/updateWinner", "Dragon");
     }
-    return { attackDragon, healJoueur, specialAttackDragon, surrender };
+    function addLogMessage(who, what, value) {
+      let logMessage = {
+        actionBy: who,
+        actionType: what,
+        actionValue: value,
+      };
+      store.dispatch("monsterSlayer/updateLogMessages", logMessage);
+    }
+    return {
+      attackDragon,
+      healJoueur,
+      specialAttackDragon,
+      surrender,
+      mayUseSpecialAttack,
+    };
   },
 };
 </script>
