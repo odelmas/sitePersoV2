@@ -1,5 +1,5 @@
 <template>
-  <div  :class="{containerInactif : !isActive}" class="container">
+  <div  :class="{containerInactif : !isActive}" class="containerTheMenu">
     <transition name="expMenu">
       <div v-if="isActive" class="explicationMenu">
         <item-text></item-text>
@@ -40,7 +40,7 @@ h2 {
   align-items: center;
   justify-content: center;
 }
-.container {
+.containerTheMenu {
   z-index: 10;
   width: 100vw;
   height: 100vh;

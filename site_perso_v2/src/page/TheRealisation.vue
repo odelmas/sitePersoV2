@@ -7,13 +7,20 @@
         color="dark"
       ></the-animation-background>
     </div>
-    <monster-slayer ></monster-slayer>
+
+    <monster-slayer></monster-slayer>
+    <mes-realisations></mes-realisations>
   </div>
 </template>
 <script>
+import mesRealisations from "../components/realisation/mesRealisations.vue";
 import monsterSlayer from "../components/realisation/monsterSlayer/monsterSlayer.vue";
+
 export default {
-  components: { monsterSlayer },
+  components: {
+    monsterSlayer,
+    mesRealisations,
+  },
   setup() {},
 };
 </script>

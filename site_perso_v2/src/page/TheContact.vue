@@ -3,7 +3,7 @@
     <div>
       <h2>Contact</h2>
       <p class="quoteTitleContact">
-        Besoin de renseignement ? Vous souhaitez un devis ?
+        Parlez-moi de votre projet ou demandez un devis !
       </p>
     </div>
 
@@ -26,9 +26,7 @@
       </div>
       <div class="textePresentationContact">
         <p>
-          Développeur Web Fullstack, je suis à votre disposition pour répondre à
-          tout type de projet de création de sites internet ou d'applications
-          Web.
+          Développeur Web Fullstack, je suis à votre disposition pour toutes créations de sites internet ou d'applications web.
         </p>
       </div>
     </div>
@@ -42,10 +40,9 @@
   </div>
 </template>
 <style lang="scss" scoped>
-
 @import "../variable.scss";
 
-$textColor : $secondaire;
+$textColor: $secondaire;
 a {
   pointer-events: visible;
   text-decoration: none;
@@ -96,7 +93,7 @@ h3 {
 }
 h2 {
   @media (max-width: 375px) {
-    font-size: 3vh
+    font-size: 3vh;
   }
   font-size: 5vh;
   margin: 0.5rem;
@@ -148,7 +145,7 @@ p {
 }
 .textePresentationContact {
   margin: 0;
-  @media(min-width: 768px) {
+  @media (min-width: 768px) {
     margin: 20px;
   }
   p {
@@ -174,7 +171,6 @@ p {
   justify-content: center;
 }
 .flexColumn {
-
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -189,8 +185,8 @@ p {
 }
 .flexLine {
   flex-direction: column;
-  
-    background-color: rgba(0, 0, 0, 0.1);
+
+  background-color: rgba(0, 0, 0, 0.1);
   @media (min-width: 768px) {
     flex-direction: row;
     background-color: transparent;

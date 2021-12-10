@@ -11,7 +11,7 @@
     :class="monsterSlayerOpen ? 'openGame' : 'closeGame'"
     class="monsterSlayerContainer"
   >
-    <h2>Mini Jeu : La Chasse aux Dragons</h2>
+    <h2>{{ titreMiniJeu }}</h2>
     <healthbar v-if="!winner"></healthbar>
     <fin-de-partie class="container" v-if="winner" :winner="winner">
     </fin-de-partie>
@@ -32,6 +32,8 @@ export default {
   components: { finDePartie, actionPossible, healthbar, battleLog },
   setup() {
     const store = useStore();
+
+    let titreMiniJeu = ref("Mini Jeu : La chasse aux Dragons")
     let winner = computed(function () {
       return store.getters["monsterSlayer/winner"];
     });
@@ -45,15 +47,18 @@ export default {
 
     let monsterSlayerOpen = ref(false);
     let battleLogOnScreen = ref(false);
-    if (window.innerWidth < 600) {
+    if (window.innerWidth < 650) {
       battleLogOnScreen.value = false;
     } else {
       battleLogOnScreen.value = true;
     }
     window.addEventListener("resize", () => {
-      if (window.innerWidth < 600) {
+      if (window.innerWidth < 650) {
+        titreMiniJeu.value = "Mini Jeu"
         battleLogOnScreen.value = false;
       } else {
+        
+        titreMiniJeu.value = "Mini Jeu : La chasse aux Dragons"
         battleLogOnScreen.value = true;
       }
     });
@@ -71,7 +76,9 @@ export default {
         store.dispatch("monsterSlayer/updateWinner", "Joueur")
       }
     });
-    onMounted(() => {});
+    onMounted(() => {
+
+    });
     function toggleMonsterSlayer() {
       monsterSlayerOpen.value = !monsterSlayerOpen.value;
       return monsterSlayerOpen.value;
@@ -80,7 +87,8 @@ export default {
       toggleMonsterSlayer,
       monsterSlayerOpen,
       winner,
-      battleLogOnScreen
+      battleLogOnScreen,
+      titreMiniJeu
     };
   },
 };
@@ -109,15 +117,19 @@ h2 {
   display: flex;
   flex-direction: column;
   left: 100%;
+  margin: 0 0.8em 0 -0.8em;
   top: 3%;
+  @media (max-width: 768px) {
+    top: 3%
+  }
   max-width: 400px;
   width: 60%;
   height: 90vh;
-  z-index: 5;
-  background-color: $bgOpacityLight;
+  z-index: 6;
+  background-color: $primaire;
   color: $primaire;
   border-radius: 1em;
-  padding: 1em;
+  padding: 0.5em;
 }
 .openGame {
   transform: translateX(-120%);

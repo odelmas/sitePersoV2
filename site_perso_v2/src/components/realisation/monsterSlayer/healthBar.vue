@@ -49,7 +49,7 @@ export default {
 }
 .healthbar {
   width: 100%;
-  height: 40px;
+  height: 20px;
   border: 1px solid $primaire;
   margin: 1rem 0;
   background: $tertiaire;

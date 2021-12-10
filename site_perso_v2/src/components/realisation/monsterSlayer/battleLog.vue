@@ -43,7 +43,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../../variable.scss";
 #log {
-  height: 30%;
+  height: 25%;
 }
 .gameOverLog {
   height: 50% !important;
