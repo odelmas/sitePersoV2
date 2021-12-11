@@ -1,10 +1,10 @@
 <template>
   <the-header id="theHeader"></the-header>
-  <the-menu :isActive="menuToggle"></the-menu>
-  <the-accueil></the-accueil>
-  <the-competence></the-competence>
+  <the-menu :isActive="menuToggle" ></the-menu>
+  <the-accueil ></the-accueil>
+  <the-competence ></the-competence>
   <the-realisation v-if="realisation"></the-realisation>
-  <the-contact></the-contact>
+  <the-contact ></the-contact>
 </template>
 <script>
 import TheHeader from "./components/layout/TheHeader.vue";
@@ -111,13 +111,16 @@ export default {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  scroll-snap-type: y proximity;
 }
 *::-webkit-scrollbar {
   width: 0 !important;
 }
 button { border: none;}
 
-
+.scrollSnap {
+  scroll-snap-align: start;
+}
 .fullPage {
     height: 100vh;
     width: 100vw;

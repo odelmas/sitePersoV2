@@ -1,5 +1,5 @@
 <template>  
-<competence-view class="fullPage"></competence-view>
+<competence-view class="fullPage scrollSnap"></competence-view>
   <div class="fullPage onScreen" id="ancreCompetence">
     <the-animation-background
       text="Compétences"

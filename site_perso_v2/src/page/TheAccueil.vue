@@ -1,5 +1,5 @@
 <template>
-  <div class="fullPage onScreen" id="ancreAccueil">
+  <div class="fullPage onScreen scrollSnap" id="ancreAccueil">
     <section>
       <h2>Anaël Damette</h2>
       <h3>Développeur web</h3>

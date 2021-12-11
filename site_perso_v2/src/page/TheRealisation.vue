@@ -1,5 +1,5 @@
 <template>
-  <div class="fullPage">
+  <div class="fullPage scrollSnap">
     <div class="fullPage onScreen" id="ancreRealisation">
       <the-animation-background
         text="Réalisations"

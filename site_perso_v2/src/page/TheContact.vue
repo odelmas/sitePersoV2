@@ -1,5 +1,5 @@
 <template>
-  <section class="fullPage">
+  <section class="fullPage scrollSnap">
     <div>
       <h2>Contact</h2>
       <p class="quoteTitleContact">
